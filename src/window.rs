@@ -29,21 +29,24 @@ impl Window {
         Window { window, events }
     }
 
-    pub fn should_close(&mut self) -> bool {
+    pub fn run<F>(&mut self, callback: F)
+    where
+        F: Fn(),
+    {
         let mut close_requested = false;
 
-        self.events.poll_events(|event| match event {
-            glutin::Event::WindowEvent { event, .. } => match event {
-                glutin::WindowEvent::CloseRequested => close_requested = true,
+        while !close_requested {
+            self.events.poll_events(|event| match event {
+                glutin::Event::WindowEvent { event, .. } => match event {
+                    glutin::WindowEvent::CloseRequested => close_requested = true,
+                    _ => (),
+                },
                 _ => (),
-            },
-            _ => (),
-        });
+            });
 
-        close_requested
-    }
+            callback();
 
-    pub fn swap_buffers(&self) {
-        self.window.swap_buffers();
+            self.window.swap_buffers().unwrap();
+        }
     }
 }
