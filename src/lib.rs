@@ -1,11 +1,6 @@
-pub fn greet(name: &str) {
-    println!("Hello, {}!", name);
-}
+extern crate gl;
+extern crate glutin;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+mod window;
+
+pub use window::Window;
