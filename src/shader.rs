@@ -14,10 +14,11 @@ pub enum ShaderType {
 
 impl Into<GLenum> for ShaderType {
     fn into(self) -> GLenum {
+        use ShaderType::*;
         match self {
-            ShaderType::Fragment => gl::FRAGMENT_SHADER,
-            ShaderType::Geometry => gl::GEOMETRY_SHADER,
-            ShaderType::Vertex => gl::VERTEX_SHADER,
+            Fragment => gl::FRAGMENT_SHADER,
+            Geometry => gl::GEOMETRY_SHADER,
+            Vertex => gl::VERTEX_SHADER,
         }
     }
 }

@@ -1,7 +1,11 @@
 #version 330 core
 
-out vec3 gl_Color;
+in Vertex {
+    vec3 color;
+} vertex_data;
+
+out vec3 out_color;
 
 void main() {
-    gl_Color = vec3(1.0, 0.0, 0.0);
+    out_color = vertex_data.color;
 }
