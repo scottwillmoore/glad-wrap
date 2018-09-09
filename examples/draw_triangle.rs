@@ -1,7 +1,6 @@
 extern crate gl;
 extern crate mini_engine;
 
-use gl::types::*;
 use mini_engine::*;
 
 struct Vertex {
@@ -29,26 +28,18 @@ fn main() {
         BufferUsage::StaticDraw,
     );
 
+    use VertexAttributeType::*;
+    let stride = std::mem::size_of::<Vertex>();
     let vertex_array = VertexArrayBuilder::new()
-        .attribute(
-            2,
-            VertexAttributeType::Float,
-            false,
-            std::mem::size_of::<Vertex>(),
-            0,
-        )
-        .attribute(
-            3,
-            VertexAttributeType::Float,
-            false,
-            std::mem::size_of::<Vertex>(),
-            std::mem::size_of::<[f32; 2]>(),
-        )
+        .attribute(2, Float, false, stride, 0)
+        .attribute(3, Float, false, stride, std::mem::size_of::<[f32; 2]>())
         .build(&vertex_buffer);
 
-    window.run(|| unsafe {
-        gl::ClearColor(0.2, 0.2, 0.2, 1.0);
-        gl::Clear(gl::COLOR_BUFFER_BIT);
+    window.run(|| {
+        unsafe {
+            gl::ClearColor(0.2, 0.2, 0.2, 1.0);
+            gl::Clear(gl::COLOR_BUFFER_BIT);
+        }
 
         program.bind();
 
