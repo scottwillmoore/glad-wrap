@@ -1,6 +1,3 @@
-extern crate gl;
-extern crate mini_engine;
-
 use mini_engine::*;
 
 struct Vertex {
@@ -28,7 +25,7 @@ fn main() {
         BufferUsage::StaticDraw,
     );
 
-    use VertexAttributeType::*;
+    use crate::VertexAttributeType::*;
     let stride = std::mem::size_of::<Vertex>();
     let vertex_array = VertexArrayBuilder::new()
         .attribute(2, Float, false, stride, 0)

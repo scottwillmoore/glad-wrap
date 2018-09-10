@@ -1,7 +1,10 @@
+cargo-features = ["edition"]
+
 [package]
 name = "mini-engine"
 version = "0.1.0"
 authors = ["Scott Moore <scott.will.moore@gmail.com>"]
+edition = "2018"
 
 [dependencies]
 gl = "0.10"

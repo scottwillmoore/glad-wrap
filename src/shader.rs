@@ -1,11 +1,10 @@
-use gl;
 use gl::types::*;
-use std;
 use std::ffi::{CStr, CString};
 use std::fs::File;
 use std::io::Read;
 use std::path::Path;
 
+#[derive(Debug, Clone, Copy)]
 pub enum ShaderType {
     Fragment,
     Geometry,
@@ -14,7 +13,7 @@ pub enum ShaderType {
 
 impl Into<GLenum> for ShaderType {
     fn into(self) -> GLenum {
-        use ShaderType::*;
+        use crate::ShaderType::*;
         match self {
             Fragment => gl::FRAGMENT_SHADER,
             Geometry => gl::GEOMETRY_SHADER,

@@ -1,16 +1,15 @@
-use gl;
 use gl::types::*;
 
-use buffer::{Buffer, BufferTarget};
+use crate::buffer::{Buffer, BufferTarget};
 
-#[derive(Clone, Copy)]
+#[derive(Debug, Clone, Copy)]
 pub enum VertexAttributeType {
     Float,
 }
 
 impl Into<GLenum> for VertexAttributeType {
     fn into(self) -> GLenum {
-        use self::VertexAttributeType::*;
+        use crate::VertexAttributeType::*;
         match self {
             Float => gl::FLOAT,
         }

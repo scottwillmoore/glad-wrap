@@ -1,5 +1,3 @@
-use gl;
-use glutin;
 use glutin::{ContextBuilder, EventsLoop, GlContext, GlWindow, WindowBuilder};
 
 pub struct Window {

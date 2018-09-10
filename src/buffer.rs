@@ -1,29 +1,27 @@
-use gl;
 use gl::types::*;
-use std;
 
-#[derive(Clone, Copy)]
+#[derive(Debug, Clone, Copy)]
 pub enum BufferTarget {
     ArrayBuffer,
 }
 
 impl Into<GLenum> for BufferTarget {
     fn into(self) -> GLenum {
-        use self::BufferTarget::*;
+        use crate::BufferTarget::*;
         match self {
             ArrayBuffer => gl::ARRAY_BUFFER,
         }
     }
 }
 
-#[derive(Clone, Copy)]
+#[derive(Debug, Clone, Copy)]
 pub enum BufferUsage {
     StaticDraw,
 }
 
 impl Into<GLenum> for BufferUsage {
     fn into(self) -> GLenum {
-        use self::BufferUsage::*;
+        use crate::BufferUsage::*;
         match self {
             StaticDraw => gl::STATIC_DRAW,
         }

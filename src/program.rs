@@ -1,9 +1,7 @@
-use gl;
 use gl::types::*;
-use std;
 use std::path::Path;
 
-use shader::Shader;
+use crate::shader::Shader;
 
 pub struct Program {
     id: GLuint,
