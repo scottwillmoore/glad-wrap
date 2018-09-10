@@ -32,12 +32,9 @@ impl Shader {
         let shader = Shader { id };
 
         let success = shader.compile(&source);
-
-        if success {
-            Ok(shader)
-        } else {
-            println!("{}", shader.get_info_log());
-            Err(shader.get_info_log())
+        match success {
+            true => Ok(shader),
+            false => Err(shader.get_info_log()),
         }
     }
 
@@ -55,6 +52,7 @@ impl Shader {
         let mut file = File::open(path).unwrap();
         let mut source = Vec::new();
         file.read_to_end(&mut source).unwrap();
+
         let c_string = CString::new(source).unwrap();
 
         let extension = path
@@ -69,7 +67,7 @@ impl Shader {
                 return Err(format!(
                     "cannot determine ShaderType from the file extension: {}",
                     extension
-                ))
+                ));
             }
         };
 

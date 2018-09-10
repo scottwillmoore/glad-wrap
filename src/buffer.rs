@@ -3,6 +3,7 @@ use gl::types::*;
 #[derive(Debug, Clone, Copy)]
 pub enum BufferTarget {
     ArrayBuffer,
+    ElementArrayBuffer,
 }
 
 impl Into<GLenum> for BufferTarget {
@@ -10,6 +11,7 @@ impl Into<GLenum> for BufferTarget {
         use crate::BufferTarget::*;
         match self {
             ArrayBuffer => gl::ARRAY_BUFFER,
+            ElementArrayBuffer => gl::ELEMENT_ARRAY_BUFFER,
         }
     }
 }

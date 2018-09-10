@@ -2,16 +2,36 @@ use gl::types::*;
 
 use crate::buffer::{Buffer, BufferTarget};
 
+// Fun fact: normalised must be false for HalfFloat, Float, Double, Fixed.
+// Can we enforce this requirement?
 #[derive(Debug, Clone, Copy)]
 pub enum VertexAttributeType {
+    Byte,
+    Double,
+    Fixed,
     Float,
+    HalfFloat,
+    Int,
+    Short,
+    UnsignedByte,
+    UnsignedInt,
+    UnsignedShort,
 }
 
 impl Into<GLenum> for VertexAttributeType {
     fn into(self) -> GLenum {
         use crate::VertexAttributeType::*;
         match self {
+            Byte => gl::BYTE,
+            Double => gl::DOUBLE,
+            Fixed => gl::FIXED,
             Float => gl::FLOAT,
+            HalfFloat => gl::HALF_FLOAT,
+            Int => gl::INT,
+            Short => gl::SHORT,
+            UnsignedByte => gl::UNSIGNED_BYTE,
+            UnsignedInt => gl::UNSIGNED_INT,
+            UnsignedShort => gl::UNSIGNED_SHORT,
         }
     }
 }
