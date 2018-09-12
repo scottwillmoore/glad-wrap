@@ -1,4 +1,4 @@
-use mini_engine::*;
+use glad_wrap::*;
 
 struct Vertex {
     position: [f32; 2],

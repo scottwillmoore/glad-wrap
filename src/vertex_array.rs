@@ -79,10 +79,23 @@ impl VertexArrayBuilder {
     }
 }
 
-// NOTE: A VertexArray should have ownership of the buffer used.
+// A VertexArray should have ownership of the buffer used.
 // At the very least, it should be able to ensure the buffer is not deleted while being used.
+//
+// Solution: Use reference counted buffers, Rc<Buffer>.
+// A vertex array takes a vertex buffer (ArrayBuffer) and a index buffer (ElementArrayBuffer).
+//
+// This may be better if these differences were strongly typed.
+// E.g. struct Buffer<T> => struct Buffer<ArrayBuffer> => type ArrayBuffer.
+// But, why do we need strongly typed buffers, what guarantees does this provide us? I can't actually think of any.
+// Can a buffer not be a ArrayBuffer and an IndexBuffer (theoretically, although doubtful in practice).
+//
+// Implement it without strongly typed buffers for the moment. Think about it.
 pub struct VertexArray {
     id: GLuint,
+    // vertex_buffer: Rc<Buffer>,
+    // index_buffer: Option<Rc<Buffer>>,
+    // TODO: Implement this...
 }
 
 impl VertexArray {
