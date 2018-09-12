@@ -1,22 +1,16 @@
-Priority goals.
+# Tasks to be completed...
 
-[x] Use Rust 2018 - because why not.
+## Current tasks:
 
-[x] Create a gl::CheckError() macro - which is only used in debug mode.
+- [ ] Create an interface for an OpenGL texture.
+- [ ] Ensure dropped buffers cannot invalidate vertex arrays that depend on the buffers.
 
-[x] Move OpenGL interface into a new crate named 'glad-wrap'.
+## Postponed tasks:
 
-[ ] Create an OpenGL wrapper for a texture.
+- [ ] Ensure multi-threaded access of OpenGL data is prevented. More research required.
 
-[ ] The use of RC to ensure binding is respected. An unbound buffer cannot be acted on.
-    Do not worry about multithreaded OpenGL safety - since I am not an expert in the area.
+## Completed tasks:
 
-Delayed goals.
-
-[ ] Improve the safety of the OpenGL modules.
-    E.g. Ensure the current thread has access to the OpenGL context.
-    E.g. Ensure the vertex array has control over the buffers that it uses.
-
-Move to a different project.
-
-[ ] Begin working on higher level abstractions, such as a Mesh, Material, Camera, etc.
+- [x] Use Rust 2018 - because why not.
+- [x] Create a gl::CheckError() macro.
+- [x] Move OpenGL interface into a new crate named 'glad-wrap'.
