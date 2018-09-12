@@ -4,6 +4,8 @@ use std::fs::File;
 use std::io::Read;
 use std::path::Path;
 
+// https://codereview.stackexchange.com/questions/175001/modern-opengl-wrapper-abstractions-shaders
+
 #[derive(Debug, Clone, Copy)]
 pub enum ShaderType {
     Fragment,
