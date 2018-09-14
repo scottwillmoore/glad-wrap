@@ -27,6 +27,8 @@
 
 - Use high level functions to make tedious tasks easier. For example: Create and setup vertex array objects with a single function call.
 
+- Use vectors, matrices and generic types to interface with the library, instead of pointers, etc.
+
 **Low-level.**
 
 - Try to mirror OpenGL functions and objects as close as possible. This should reduce overhead for users (who know OpenGL) that are attempting to use this library.
