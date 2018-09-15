@@ -7,44 +7,30 @@
 [docs.rs]: https://docs.rs/glad-wrap
 [docs.rs-badge]: https://docs.rs/glad-wrap/badge.svg
 
-**An ergonomic (and mostly safe) OpenGL 3.2+ wrapper written in Rust.**
+**An ergonomic (and mostly safe) OpenGL 3.3+ wrapper written in Rust.**
 
 ## Overview
 
-...
+Please read the [`design.md`](https://github.com/scottwillmoore/glad-wrap/blob/master/design.md) document which should explain why this library has been created and what problems it addresses.
 
-### Goals
+I would **love** feedback on this document! What other problems can you think of? Is there a better way to solve some of these problems?
 
-**Safe.**
+## Goals
 
-- Be completely stateless. All state is passed to functions as parameters.
+For now the project goals are:
 
-- Ensure the lifetimes of resources are guarenteed. For example: Do not leave a vertex array with an invalid buffer.
+* Solve all the problems in the [`design.md`](https://github.com/scottwillmoore/glad-wrap/blob/master/design.md) document.
 
-**Simple.**
+* Ensure the library is nice (easy and concise) to use.
 
-- Eliminate the need for any calls to unsafe functions.
-
-- Use high level functions to make tedious tasks easier. For example: Create and setup vertex array objects with a single function call.
-
-- Use vectors, matrices and generic types to interface with the library, instead of pointers, etc.
-
-**Low-level.**
-
-- Try to mirror OpenGL functions and objects as close as possible. This should reduce overhead for users (who know OpenGL) that are attempting to use this library.
-
-- Where possible have zero additional cost. Only compromise performance if safety is required.
-
-**Cross-platform.**
-
-- Work on Windows, MacOS and Linux.
+* Remove the need for any unsafe function calls to OpenGL.
 
 ## Getting Started
 
-...
-
 ````rust
 use glad-wrap::*;
+
+// TODO: Finish the example.
 ````
 
 More examples can be found in [`./examples`](https://github.com/scottwillmoore/glad-wrap/blob/master/examples).
